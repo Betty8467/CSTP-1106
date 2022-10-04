@@ -1,0 +1,17 @@
+{
+    "name": "assigment",
+    "version": "1.0.0",
+    "description": "This is the first project we will learn today",
+    "main": "practicenode.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Betty",
+    "license": "ISC",
+    "devDependencies": {
+      "nodemon": "^2.0.20"
+    },
+    "dependencies": {
+      "express": "^4.18.1"
+    }
+  }
