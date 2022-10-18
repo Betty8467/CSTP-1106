@@ -1,14 +1,11 @@
 let userList = [];
 
-function submitForm() {
-    let newRow = document.createElement("tr", "td");
-    let newCell = document.createElement("td"); 
-    const mq = window.matchMedia("(max-width:500px)")
+function submitForm() { 
 
     let data = {
-        name: document.getElementById("name").value,
-        email:  document.getElementById("email").value,
-        studentid:  document.getElementById("studentid").value, 
+        name: document.getElementById('name').value,
+        email:  document.getElementById('email').value,
+        studentid:  document.getElementById('studentid').value
     }
 
     // Saving new form submit data
@@ -20,21 +17,20 @@ function submitForm() {
 
 // You can get the userlist using
 
+let tr = document.createElement("tr", "td");
+let td = document.createElement("td");
+
 let updatedUserList = JSON.parse(localStorage.getItem("userList"));
 
 for (let i = 0 ; i < updatedUserList.length ; i++) {
-   newCell.style.fontSize = "24px";
-   newCell.innerHTML = `<prev>
-    ${updatedUserList[i].name}&emsp;
-    ${updatedUserList[i].email}&emp;
+   td.innerHTML = `<prev>
+    ${updatedUserList[i].name};
+    ${updatedUserList[i].email};
     ${updatedUserList[i].studentid}
    </prev>`
-   if (mq.matches){
-    newCell.style.fontSize= "12";
-   }
 }
-newRow.append(newCell);
-document.getElementById("rows".appendChild(newRow))
+newRow.append(td);
+document.getElementById("rows".appendChild(tr))
 
 }
 
