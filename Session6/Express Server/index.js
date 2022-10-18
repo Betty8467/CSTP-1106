@@ -8,7 +8,7 @@ const student = [];
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send("Welcome to srudent APIs");
+    res.send("Welcome to student APIs");
 })
 
 // We are trying to post student data in the server
