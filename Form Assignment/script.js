@@ -3,8 +3,11 @@ let userList = [];
 function submitForm() {
 
     let data = {
-        name: "",
-        email: ""
+        fname: "",
+        lname: "",
+        email: "", 
+        password: "",
+
     }
 
     // Saving new form submit data
