@@ -1,20 +1,21 @@
 let userList = [];
 
 function submitForm() {
+    let newRow = document.createElement("tr", "td");
+    let newCell = document.createElement("td"); 
+    const mq = window.matchMedia("(max-width:500px)")
 
     let data = {
-        fname: "",
-        lname: "",
-        email: "", 
-        password: "",
-
+        name: document.getElementById("name").value,
+        email:  document.getElementById("email").value,
+        studentid:  document.getElementById("studentid").value, 
     }
 
     // Saving new form submit data
     userList.push(data);
 
     localStorage.setItem("userList", JSON.stringify(userList));
-}
+
 
 
 // You can get the userlist using
@@ -22,5 +23,18 @@ function submitForm() {
 let updatedUserList = JSON.parse(localStorage.getItem("userList"));
 
 for (let i = 0 ; i < updatedUserList.length ; i++) {
-   
+   newCell.style.fontSize = "24px";
+   newCell.innerHTML = `<prev>
+    ${updatedUserList[i].name}&emsp;
+    ${updatedUserList[i].email}&emp;
+    ${updatedUserList[i].studentid}
+   </prev>`
+   if (mq.matches){
+    newCell.style.fontSize= "12";
+   }
 }
+newRow.append(newCell);
+document.getElementById("rows".appendChild(newRow))
+
+}
+
