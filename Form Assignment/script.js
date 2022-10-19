@@ -14,6 +14,8 @@ function submitForm() {
     localStorage.setItem("userList", JSON.stringify(userList));
 
 
+}
+
 
 // You can get the userlist using
 
@@ -31,6 +33,4 @@ for (let i = 0 ; i < updatedUserList.length ; i++) {
 }
 newRow.append(td);
 document.getElementById("rows".appendChild(tr))
-
-}
 
