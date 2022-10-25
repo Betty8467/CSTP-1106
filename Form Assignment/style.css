@@ -135,3 +135,9 @@ span:hover:after {
 .padding {
     padding: 10px;
 }
+
+p {
+  font-size: smaller;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color:#660707
+}
