@@ -86,7 +86,7 @@ app.get("/midterm/stuff/id/:postemployeeid", (req, res) => {
 
     const employeeid = req.params.postemployeeid;
     
-    const findemployeeid = Employees.find((Employees) => Employees.employeeid == employeeid ? true : false);
+    const findemployeeid = Employees.find((Employee) => Employee.employeeid == employeeid ? true : false);
 
     if (findemployeeid) {
         return res.status(205).json({
@@ -109,7 +109,7 @@ app.get("/midterm/stuff/id/:postemployeeid", (req, res) => {
 // Part 5
 
 
-app.put("/midterm/employee/:employeeid", (req, res) => {
+app.put("/midterm/employee/id/:employeeid", (req, res) => {
     const employeeid = req.params.employeeid;
     const postToUpdate = req.body;
 
