@@ -50,24 +50,49 @@ let student = [
 
     // studentWithHighestMarks(student)
 
-    function bestStudent(array){
-        let high = [];
-        let sum = 0;
-        for (i = 0; i < array.length; i++) {
-            let sum = (array[i].marks).reduce((partialSum, a) => partialSum + a, 0);
-            high.push(sum)
+    // function bestStudent(array){
+    //     let high = [];
+    //     let sum = 0;
+    //     for (i = 0; i < array.length; i++) {
+    //         let sum = (array[i].marks).reduce((partialSum, a) => partialSum + a, 0);
+    //         high.push(sum)
             
-        }
-        const max = high.reduce((a, b) => Math.max(a, b), -Infinity);
+    //     }
+    //     const max = high.reduce((a, b) => Math.max(a, b), -Infinity);
         
 
         
-        for (i = 0; i < array.length; i++){
-        if (max == high[i] ){
-            console.log(array[i]);
+    //     for (i = 0; i < array.length; i++){
+    //     if (max == high[i] ){
+    //         console.log(array[i]);
+    //         }
+    //     }
+    // }
+    // function studentWithHighestMarks(array) {
+        
+    // bestStudent(array)
+    
+    // }
+
+    // studentWithHighestMarks(student)
+    function bestStudent(array){
+        let high = [];
+        let sum = 0;
+        Object.keys(array).forEach(key => {
+            let sum = (array[key].marks).reduce((partialSum, a) => partialSum + a, 0);
+            high.push(sum)
+            
+        })
+        
+        const max = high.reduce((a, b) => Math.max(a, b), -Infinity);
+        
+        Object.keys(array).forEach(key => {
+        if (max == high[key] ){
+            console.log(array[key]);
             }
-        }
+        })
     }
+    
     function studentWithHighestMarks(array) {
         
     bestStudent(array)
@@ -75,6 +100,8 @@ let student = [
     }
 
     studentWithHighestMarks(student)
+
+    
 
 
     // var studentmarks = function () {
@@ -227,61 +254,65 @@ missingNumber([4, 5, 2, 1, 0], 5);
 //     console.log(`Server running on port ${PORT}`);
 // })
 
-const express = require("express");
-const app = express();
-const PORT = 8000;
-
-// CRUD
-// C --> Create
-// R ---> Read
-// U ---> Update
-// D ---> Delete
-
-let employees = [
-    {
-        Name : "Daniel",
-        EmployeeId: 100,
-        Email : "daniel@gmail.com",
-        Department :"IT"
-    }
-]
-
-
-// The Middleware to extract the incoming data as json
-app.use(express.json());
-
-app.get("/", (req, res) => {
-
-    // Redirecting to new routes
-    res.redirect("/ASS7/")
-})
-
-
-app.get("/ASS7/", (req, res) => {
-
-    res.send("ENDPOINTS");
-})
 
 
 
-// Get Endpoint for all posts
-app.get("/ASS7/posts", (req, res) => {
-    return res.status(200).json({
-        employees
-    })
-})
+
+// const express = require("express");
+// const app = express();
+// const PORT = 8000;
+
+// // CRUD
+// // C --> Create
+// // R ---> Read
+// // U ---> Update
+// // D ---> Delete
+
+// let employees = [
+//     {
+//         Name : "Daniel",
+//         EmployeeId: 100,
+//         Email : "daniel@gmail.com",
+//         Department :"IT"
+//     }
+// ]
 
 
-app.post("/ASS7/posts", (req, res) => {
-    const data = req.body;
-    employees.push(data);
+// // The Middleware to extract the incoming data as json
+// app.use(express.json());
 
-    return res.status(201).json(employees);
+// app.get("/", (req, res) => {
 
-})
+//     // Redirecting to new routes
+//     res.redirect("/ASS7/")
+// })
 
-app.listen(PORT, () => {
-    console.log(`Server running at port ${PORT}`);
-})
+
+// app.get("/ASS7/", (req, res) => {
+
+//     res.send("ENDPOINTS");
+// })
+
+
+
+// // Get Endpoint for all posts
+// app.get("/ASS7/posts", (req, res) => {
+//     return res.status(200).json({
+//         employees
+//     })
+// })
+
+
+// app.post("/ASS7/posts", (req, res) => {
+//     const data = req.body;
+//     employees.push(data);
+
+//     return res.status(201).json(employees);
+
+// })
+
+// app.listen(PORT, () => {
+//     console.log(`Server running at port ${PORT}`);
+// })
 
 
