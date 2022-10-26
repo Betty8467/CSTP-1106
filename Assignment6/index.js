@@ -92,14 +92,10 @@ let student = [
             }
         })
     }
-    
-    function studentWithHighestMarks(array) {
-        
-    bestStudent(array)
-    
-    }
 
-    studentWithHighestMarks(student)
+        
+    bestStudent(student)
+    
 
     
 
@@ -206,6 +202,7 @@ function missingNumber(array, n) {
 }
 
 missingNumber([4, 5, 2, 1, 0], 5);
+missingNumber([2, 1, 0, 3, 7, 6, 4, 5, 10, 9], 10);
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -258,61 +255,55 @@ missingNumber([4, 5, 2, 1, 0], 5);
 
 
 
-// const express = require("express");
-// const app = express();
-// const PORT = 8000;
-
-// // CRUD
-// // C --> Create
-// // R ---> Read
-// // U ---> Update
-// // D ---> Delete
-
-// let employees = [
-//     {
-//         Name : "Daniel",
-//         EmployeeId: 100,
-//         Email : "daniel@gmail.com",
-//         Department :"IT"
-//     }
-// ]
-
-
-// // The Middleware to extract the incoming data as json
-// app.use(express.json());
-
-// app.get("/", (req, res) => {
-
-//     // Redirecting to new routes
-//     res.redirect("/ASS7/")
-// })
-
-
-// app.get("/ASS7/", (req, res) => {
-
-//     res.send("ENDPOINTS");
-// })
+const express = require("express");
+const app = express();
+const PORT = 8000;
 
 
 
-// // Get Endpoint for all posts
-// app.get("/ASS7/posts", (req, res) => {
-//     return res.status(200).json({
-//         employees
-//     })
-// })
+let employees = [
+    {
+        Name : "Daniel",
+        EmployeeId: 100,
+        Email : "daniel@gmail.com",
+        Department :"IT"
+    }
+]
 
 
-// app.post("/ASS7/posts", (req, res) => {
-//     const data = req.body;
-//     employees.push(data);
+app.use(express.json());
 
-//     return res.status(201).json(employees);
+app.get("/", (req, res) => {
 
-// })
+  
+    res.redirect("/ASS7/")
+})
 
-// app.listen(PORT, () => {
-//     console.log(`Server running at port ${PORT}`);
-// })
+
+app.get("/ASS7/", (req, res) => {
+
+    res.send("ENDPOINTS");
+})
+
+
+
+app.get("/ASS7/posts", (req, res) => {
+    return res.status(200).json({
+        employees
+    })
+})
+
+
+app.post("/ASS7/posts", (req, res) => {
+    const data = req.body;
+    employees.push(data);
+
+    return res.status(201).json(employees);
+
+})
+
+app.listen(PORT, () => {
+    console.log(`Server running at port ${PORT}`);
+})
 
 
